@@ -1,0 +1,100 @@
+.input-text{
+    border: 0px;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0px;
+}
+.input-text:focus{
+    border-color: #827ffe;
+    box-shadow: 0 0px 0px inset, 0 0 0px ;
+    outline: 0 none;
+}
+.lg-welcome{
+    width:173px;
+    height:144px;
+}
+
+/* CALENDAR */
+.lg-calender{
+    margin-top: -50px;
+    right:0;
+    width: 100px;
+    float: right;
+}
+.lg-calender-each{
+    width: 50px;
+}
+table.calendar{
+  background-color:#eceff4;
+  border-radius: 5px;
+}
+td.date{
+  width:35%;
+  height: 10px;
+  text-align:right;
+  text-decoration:bold;
+  font-weight: bold;
+}
+td.space{
+  height: 10px;
+  width:20px;
+}
+td.event{
+  height: 10px;
+  text-align:left;
+}
+
+/* ./CALENDAR */
+
+.ft-sistem{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+    font-size: 25px;
+    color:#5d5d5d;
+}
+.ft-akademik{
+    font-family:'tahoma';
+    font-size: 23px;
+}
+
+/* HEADER */
+.head{
+    z-index: 1;
+    position:fixed;
+    top: 0;
+    right: 0;
+    height: 40px;
+    padding: 5px;
+    background-color: white;
+    float: left;
+    text-align: right;
+}
+.logoProfil{
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 5%;
+}
+p.profil {
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+/* LOCK HEADER */
+/* header.main-header{
+  width: 100%;
+  position: fixed;
+} */
+
+/* SIDEBAR */
+aside.main-sidebar{
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+}
+
+/* MAIN */
+img.main-img-profile{
+  width:50%;
+  height:50%;
+}
