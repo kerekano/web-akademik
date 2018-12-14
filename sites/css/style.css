@@ -92,6 +92,11 @@ aside.main-sidebar{
   top: 0;
   bottom: 0;
 }
+img.logo-sidebar{
+  width:20px;
+  height:auto;
+  margin-left:-10px;
+}
 
 /* MAIN */
 img.main-img-profile{

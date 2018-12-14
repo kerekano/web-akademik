@@ -31,7 +31,7 @@
             <li class="treeview">
                 <a onclick="javascript:getpages('./content/Main.php','centercol');">
                     <!-- icon -->
-                    <i class="fa fa-home"></i>
+                    <img src="./img/dashboard.png" class="logo-sidebar">
                     <!-- name -->
                     <span>Dashboard</span>
                 </a>
@@ -39,7 +39,7 @@
             <li class="treeview">
                 <a onclick="javascript:getpages('./content/MataKuliah.php','centercol');">
                     <!-- icon -->
-                    <i class="fa fa-home"></i>
+                    <img src="./img/matakuliah.png" class="logo-sidebar">
                     <!-- name -->
                     <span>Mata Kuliah</span>
                 </a>
@@ -47,7 +47,7 @@
             <li class="treeview">
                 <a onclick="javascript:getpages('./content/KalenderAkademik.php','centercol');">
                     <!-- icon -->
-                    <i class="fa fa-home"></i>
+                    <img src="./img/kalenderakademik.png" class="logo-sidebar">
                     <!-- name -->
                     <span>Kalender Akademik</span>
                 </a>
@@ -55,7 +55,7 @@
             <li class="treeview">
                 <a onclick="javascript:getpages('./content/TugasDanMateri.php','centercol');">
                     <!-- icon -->
-                    <i class="fa fa-home"></i>
+                    <img src="./img/tugasdanmateri.png" class="logo-sidebar">
                     <!-- name -->
                     <span>Tugas dan Materi</span>
                 </a>
@@ -63,7 +63,7 @@
             <li class="treeview">
                 <a onclick="javascript:getpages('./content/KrsDanKhs.php','centercol');">
                     <!-- icon -->
-                    <i class="fa fa-home"></i>
+                    <img src="./img/krsdankhs.png" class="logo-sidebar">
                     <!-- name -->
                     <span>KRS dan KHS</span>
                 </a>
@@ -71,7 +71,7 @@
 
             <hr style="background-color:white; width:80%;">
 
-            <li class="treeview" style="margin-left:-20px;font-size:32px;text-align:center; ">
+            <li class="treeview" style="margin-left:-10px;font-size:20px;text-align:center; ">
                 <a onclick="window.location.href='logout.php'">
                     <!-- icon -->
                       <i class="fa fa-power-off"></i>
