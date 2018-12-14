@@ -22,6 +22,18 @@
   <link rel="stylesheet" href="./css/AdminLTE.min.css">
   <link rel="stylesheet" href="./css/_all-skins.min.css">
 
+    <!-- jQuery 2.2.3 -->
+    <script src="./js/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="./js/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="./js/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="./js/demo.js"></script>
   <!-- AJAX -->
   <script type="text/javascript">
 
@@ -69,6 +81,31 @@
       // END GET PAGE 1
 
   </script>
+    <script>
+        function getDashboard(){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/main.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        var nim1 = myObj['NIM'];
+                        var angkatan = nim1.substr(2,2);
+                        $(".profil-ms").text(myObj['Nama']);
+                        $(".panggilan").text(myObj['Nama_Depan']);
+                        $("#nim").text(nim1);
+                        $("#ipk").text(myObj['IPK']);
+                        $(".pp").attr('src',"img/" + myObj['pp']);
+                        $("#pa").text(myObj['PA']);
+                        $("#prodi").text(myObj['Prodi']);
+                        $("#angkatan").text('20'+angkatan);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });}
+    </script>
   <!-- END AJAX -->
 
 </head>
@@ -97,17 +134,5 @@
 <!-- ./wrapper -->
 </div>
 
-<!-- jQuery 2.2.3 -->
-<script src="./js/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="./js/bootstrap.min.js"></script>
-<!-- Slimscroll -->
-<script src="./js/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="./js/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="./js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="./js/demo.js"></script>
 </body>
 </html>

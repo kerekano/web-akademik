@@ -11,10 +11,10 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
-          <a>
-            <img src="./img/dog.png" class="user-image" alt="User Image">
-            <span style="color:black;">Kevin Christian Chandra</span>
-          </a>
+            <a>
+                <img class="user-image pp" alt="User Image">
+                <span style="color:black;" class="profil-ms"></span>
+            </a>
         </li>
       </ul>
     </div>

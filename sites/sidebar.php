@@ -7,17 +7,10 @@
         <!-- <p style="color:white;">DASHBOARD</p> -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="img/dog.png" width="160px" class="img-circle" alt="User Image">
+                <img class="pp" width="160px" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p style="font-size: 15px;">
-                    <?php
-                        $namaMhs = "Kevin Christian Chandra Siapapun harus duduk";
-                        if (strlen($namaMhs) > 23){
-                         $namaMhs = substr($namaMhs, 0, 23);
-                        }
-                        echo $namaMhs;
-                    ?>
+                <p style="font-size: 15px;" class="panggilan">
                 </p>
                 <a href="#"><i class="fa fa-circle text-success"></i> <?php echo $nim ?></a>
             </div>
