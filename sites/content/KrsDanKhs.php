@@ -98,7 +98,7 @@
                   <td>2</td>
                   <td>
                     <center>
-                      <button type="button" class="btn btn-danger btn-med">Delete</button>
+                      <button type="button" class="btn btn-danger btn-med" data-toggle="modal" data-target="#modalDeleteKHS">Delete</button>
                     </center>
                   </td>
                 </tr>
@@ -188,15 +188,46 @@
                     <li><a href="#">3</a></li>
                     <li><a href="#">&raquo;</a></li>
                   </ul>
-                  <button type="button" class="btn btn-warning btn-med pull-right" style="margin-right:20px;">Commit</button>
+                  <button type="button" data-toggle="modal" data-target="#modalCommitKHS" class="btn btn-warning btn-med pull-right" style="margin-right:20px;">Commit</button>
                 </div>
+
               </div>
               <!-- ./ BOX -->
             </div>
           </div>
       <!-- ./PILIHAN MATA KULIAH -->
 
+      <!-- Modal Commit KHS -->
+      <div class="modal" id="modalCommitKHS" role="dialog">
+          <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div class="modal-body">
+                    Yakinkah anda memilih matakuliah tersebut?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning">Ya, saya yakin!</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- ./Modal Commit KHS -->
 
+      <!-- Modal Delete KHS -->
+      <div class="modal" id="modalDeleteKHS" role="dialog">
+          <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div class="modal-body">
+                    Yakinkah anda membatalkan matakuliah ini?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Ya, saya yakin!</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- ./Modal Delete KHS -->
 
   <!-- End of content -->
 
