@@ -22,6 +22,12 @@
   <link rel="stylesheet" href="./css/AdminLTE.min.css">
   <link rel="stylesheet" href="./css/_all-skins.min.css">
 
+  <link href="./css/icheck/blue.css" rel="stylesheet">
+  <!-- jQuery 2.2.3 -->
+  <script src="./js/jquery-2.2.3.min.js"></script>
+  <!-- <Icheck js -->
+  <script src="./js/icheck.js"></script>
+
   <!-- AJAX -->
   <script type="text/javascript">
 
@@ -61,6 +67,13 @@
                       $(obj).find("script").each(function(i) {
                           eval($(this).text());
                       });
+
+                      // icheck checking
+                      $(document).ready(function(){
+                        $('input').iCheck({
+                          checkboxClass: 'icheckbox_flat-blue'
+                        });
+                      });
                   }
               }
               xmlHttp.send(null);
@@ -93,12 +106,11 @@
     <?php
       include('./footer.php');
      ?>
+     <div class="control-sidebar-bg"></div>
   </div>
 <!-- ./wrapper -->
 </div>
 
-<!-- jQuery 2.2.3 -->
-<script src="./js/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="./js/bootstrap.min.js"></script>
 <!-- Slimscroll -->
