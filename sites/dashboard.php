@@ -496,7 +496,6 @@
                     success: function(response) {
                         myObj = JSON.parse(response);
                         var length = myObj.length;
-                        console.log(length);
                         var i =0;
                         matkul = document.getElementById("matkul-dsn");
                         while (i<length){
@@ -523,7 +522,7 @@
                                 "                              <img src=\"./img/profile.png\">\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"product-info\">\n" +
-                                "                              <a class=\"product-title\" onclick=\"getMhs('"+ myObj[i]["Matkul"]+"')\"href=\"#modalMurid\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMurid\">\n" +
+                                "                              <a class=\"product-title\" onclick=\"getMhs('"+ myObj[i]["Matkul"]+"','"+ myObj[i]["kode"]+"')\"href=\"#modalMurid\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMurid\">\n" +
                                 "                                Murid di dalam kelas\n" +
                                 "                              </a>\n" +
                                 "                                  <span class=\"product-description\">\n" +
@@ -539,7 +538,7 @@
                                 "                              <img src=\"./img/tugasdanmateri.png\">\n" +
                                 "                            </div>\n" +
                                 "                            <div class=\"product-info\">\n" +
-                                "                              <a class=\"product-title\" href=\"#modalMateri\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMateri\">\n" +
+                                "                              <a class=\"product-title\" onclick=\"getDsnMateri('"+ myObj[i]["Matkul"]+"','"+ myObj[i]["kode"]+"')\" href=\"#modalMateri\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMateri\">\n" +
                                 "                                Tugas Dan Materi\n" +
                                 "                              </a>\n" +
                                 "                                  <span class=\"product-description\">\n" +
@@ -565,7 +564,7 @@
                 });
             });
         };
-        function getMhs(a){
+        function getMhs(a,b){
             document.getElementById("nm-modal").innerText = a;
             $(function() {
                 $.ajax({
@@ -590,9 +589,45 @@
                             cell3.innerHTML = myObj[i - 1]['nim'];
                             cell4.innerHTML =  myObj[i - 1]['Prodi'];
                             cell5.innerHTML =  "<center>\n" +
-                                "<button type=\"button\" onclick=\"nilaiDsn('"+myObj[i - 1]['nim']+"')\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#modalNilai\">Nilai</button>\n" +
-                                "<button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#modalAbsen\">Absen</button>\n" +
+                                "<button type=\"button\" onclick=\"nilaiDsn('"+myObj[i - 1]['Nama']+"','"+myObj[i - 1]['nim']+"','"+myObj[i - 1]['Prodi']+"','"+a+"','"+b+"')\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#modalInputNilai\">Nilai</button>\n" +
+                                "<button type=\"button\" onclick=\"absenDsn('"+myObj[i - 1]['Nama']+"','"+myObj[i - 1]['nim']+"','"+myObj[i - 1]['Prodi']+"','"+a+"','"+b+"')\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#modalInputAbsen\">Absen</button>\n" +
                                 "</center>";
+                            i++;
+                        }
+                    },
+                    error: function(error) {
+                    }
+                });
+            })
+        }
+        function nilaiDsn(a,b,c,d,e){
+            document.getElementById("nm-mhs").innerText=a;
+            document.getElementById("nim-mhs").innerText=b;
+            document.getElementById("prodi-mhs").innerText=c;
+            document.getElementById("sbt-nilai").setAttribute( "onClick", "javascript: inputNilai('"+b+"','"+e+"');" );
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {b:b},
+                    url: 'php/dosen/nilaiMhs.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        var table = document.getElementById("dsn-nilai").getElementsByTagName('tbody')[0];
+                        $('#dsn-nilai tbody').empty();
+                        var length = myObj.length;
+                        var i=1;
+                        while(i<=length) {
+                            var row = table.insertRow(i-1);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = myObj[i - 1]['Jenis'];
+                            cell3.innerHTML = myObj[i - 1]['Nilai'];
+                            cell4.innerHTML = myObj[i - 1]['tgl'];
+                            cell5.innerHTML = myObj[i - 1]['ket'];
                             i++;
                         }
                     },
@@ -601,18 +636,157 @@
                 });
             });
         }
-        function nilaiDsn(){
+        function inputNilai(a,b){
+            var nilai = document.getElementById("input-nilai").value;
+            var tipe = document.getElementById("input-tipe").value;
+            var tgl = document.getElementById("input-tgl").value;
+            var ket = document.getElementById("input-ket").value;
             $(function() {
                 $.ajax({
                     type: 'POST',
-                    data: {a:a},
-                    url: 'php/dosen/nilaiMhs.php',
+                    data: {a:a,b:b,nilai:nilai,tipe:tipe,tgl:tgl,ket:ket},
+                    url: 'php/dosen/inputNilai.php',
+                    success: function(response) {
+                    },
+                });
+            });
+        }
+        function absenDsn(a,b,c,d,e){
+            document.getElementById("nm_mhs").innerText=a;
+            document.getElementById("nim_mhs").innerText=b;
+            document.getElementById("prodi_mhs").innerText=c;
+            document.getElementById("sbt_absen").setAttribute( "onClick", "javascript: inputAbsen('"+b+"','"+e+"');" );
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {b:b},
+                    url: 'php/dosen/absenMhs.php',
                     success: function(response) {
                         var myObj = JSON.parse(response);
-
+                        var table = document.getElementById("dsn-absen").getElementsByTagName('tbody')[0];
+                        $('#dsn-absen tbody').empty();
+                        var length = myObj.length;
+                        var i=1;
+                        while(i<=length) {
+                            var row = table.insertRow(i-1);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = myObj[i - 1]['Materi'];
+                            cell3.innerHTML = myObj[i - 1]['Kehadiran'];
+                            cell4.innerHTML = myObj[i - 1]['tgl'];
+                            i++;
+                        }
                     },
                     error: function(error) {
                     }
+                });
+            });
+        }
+        function inputAbsen(a,b){
+            var tipe = document.getElementById("input_tipe").value;
+            var tgl = document.getElementById("input_tgl").value;
+            var materi = document.getElementById("input_materi").value;
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a,b:b,tipe:tipe,tgl:tgl,materi:materi},
+                    url: 'php/dosen/inputAbsen.php',
+                    success: function(response) {
+                    },
+                });
+            });
+        }
+        function getDsnMateri(a,b){
+            document.getElementById("materi-title").innerText = a;
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {b:b},
+                    url: 'php/dosen/materi.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        var table = document.getElementById("table-materi").getElementsByTagName('tbody')[0];
+                        $('#table-materi tbody').empty();
+                        var length = myObj.length;
+                        var i=1;
+                        while(i<=length) {
+                            var row = table.insertRow(i-1);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = myObj[i - 1]['judul'];
+                            cell3.innerHTML = myObj[i - 1]['tgl'];
+                            cell4.innerHTML =  myObj[i - 1]['ket'];
+                            cell5.innerHTML =  "<center>\n" +
+                                "<button type=\"button\" class=\"btn btn-success btn-med\">Download</button>\n" +
+                                "<button type=\"button\" class=\"btn btn-danger btn-med\" onclick=\"deleteTgs('"+b+"','"+myObj[i - 1]['judul']+"','"+ myObj[i - 1]['ket']+"')\">Delete</button>\n" +
+                                "</center>";
+                            i++;
+                        }
+                        table.insertRow(length).insertCell(0).innerHTML = "" +
+                            "                                          <td colspan=\"5\">\n" +
+                            "                                            <button type=\"button\" style=\"width:100%;\" value=\""+b+"\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#modalInputMateri\">\n" +
+                            "                                              Tambah Materi/Tugas\n" +
+                            "                                            </button>\n" +
+                            "                                          </td>\n";
+                        document.getElementById("commit-tgs").setAttribute('onclick',"inputTugas(\""+b+"\")")
+                    },
+                    error: function(error) {
+                    }
+                });
+            })
+        }
+        function inputTugas(a){
+            var judul = document.getElementById("jdl-tgs").value;
+            var tipe = document.getElementById("tp-tgs").value;
+            var ket = document.getElementById("ket-tgs").value;
+            var jdlFile = document.getElementById("jdl-file").value;
+
+            var file_data = $("#tgsUp").prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            form_data.append('a', a);
+            form_data.append('tipe', tipe);
+            form_data.append('judul', judul);
+            form_data.append('ket', ket);
+            form_data.append('jdlfile', jdlFile);
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: form_data,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    url: 'php/dosen/inputTgs.php',
+                    success: function(response) {
+                        console.log(response)
+                    },
+                });
+            });
+        }
+        function uploadTugas(){
+            document.getElementById("tgsUp").click();
+        }
+        function getFileName(a){
+            var file = a.files[0];
+            var filename = file.name;
+            var arr = filename.split(".");
+            document.getElementById("jdl-file").value = arr[0];
+        }
+        function deleteTgs(a,b,c){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a,b:b,c:c},
+                    url: 'php/dosen/deleteTgs.php',
+                    success: function(response) {
+                    },
                 });
             });
         }

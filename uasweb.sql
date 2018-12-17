@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 11:26 AM
+-- Generation Time: Dec 17, 2018 at 06:38 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -33,8 +33,16 @@ CREATE TABLE `absen_tif` (
   `kode_matkul` varchar(10) DEFAULT NULL,
   `nim` varchar(9) DEFAULT NULL,
   `materi` varchar(255) DEFAULT NULL,
-  `kehadiran` varchar(1) DEFAULT NULL
+  `kehadiran` varchar(255) DEFAULT NULL,
+  `tgl` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `absen_tif`
+--
+
+INSERT INTO `absen_tif` (`id`, `kode_matkul`, `nim`, `materi`, `kehadiran`, `tgl`) VALUES
+(1, 'IF302', '311610015', 'Testing', 'Hadir', '2018-12-05');
 
 -- --------------------------------------------------------
 
@@ -79,7 +87,7 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`id`, `nama_dosen`, `program_studi`, `ikatan_kerja`, `aktivitas`, `masuk`, `img`) VALUES
-('IF001', 'Ir. Oesman Hendra Kelana, M.Div, M.Cs', '31', 'Dosen Tetap', 'Aktif Mengajar', '2008', 'IF001.jpg'),
+('IF001', 'Ir. Oesman Hendra Kelana, M.Div, M.Cs', '31', 'Dosen Tetap', 'Aktif Mengajar', '2008', 'IF503.pdf'),
 ('IF002', 'Windra Swastika, Ph.D', '31', 'Dosen Tetap', 'Aktif Mengajar', '2009', 'profile.png'),
 ('IF003', 'Paulus Lucky Tirma Irawan, S.Kom., MT.', '31', 'Dosen Tetap', 'Aktif Mengajar', '2010', 'profile.png'),
 ('IF004', 'Dr.Eng. Romy Budhi Widodo', '31', 'Dosen Tetap', 'Aktif Mengajar', '2011', 'profile.png'),
@@ -134,7 +142,7 @@ CREATE TABLE `id_desc` (
 
 INSERT INTO `id_desc` (`id`, `nim`, `nama`, `nama_depan`, `img`, `ipk`, `id_pa`, `sks`, `prodi`, `status`) VALUES
 (1, '311610015', 'Reinaldo Sebastian Gunawan', 'Reinaldo', '311610015.jpg', '3', 'IF001', 21, '31', 'Aktif'),
-(2, '311610010', 'Kevin Christian Chandra', 'Kevin', '311610010.jpg', '3.2', 'IF002', 22, '31', 'Aktif'),
+(2, '311610010', 'Kevin Christian Chandra', 'Kevin', '311610010.jpg', '3.2', 'IF001', 22, '31', 'Aktif'),
 (3, '311610006', 'Fernandito Yoga Danny', 'Fernandito', 'profile.png', '2.9', 'IF002', 20, '31', 'Aktif');
 
 -- --------------------------------------------------------
@@ -244,10 +252,18 @@ CREATE TABLE `nilai_tif` (
   `id` int(11) NOT NULL,
   `kode_matkul` varchar(10) DEFAULT NULL,
   `nim` varchar(9) DEFAULT NULL,
-  `jenis` varchar(1) DEFAULT NULL,
+  `jenis` varchar(255) DEFAULT NULL,
   `nilai` int(11) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL
+  `keterangan` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nilai_tif`
+--
+
+INSERT INTO `nilai_tif` (`id`, `kode_matkul`, `nim`, `jenis`, `nilai`, `keterangan`, `tanggal`) VALUES
+(6, 'IF302', '311610015', 'Kuis Kecil 1', 90, '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -279,18 +295,19 @@ CREATE TABLE `tugas` (
   `kode_matkul` varchar(10) DEFAULT NULL,
   `judul` varchar(255) DEFAULT NULL,
   `keterangan` text,
-  `file` varchar(255) DEFAULT NULL
+  `nama_file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tugas`
 --
 
-INSERT INTO `tugas` (`id`, `kode_matkul`, `judul`, `keterangan`, `file`) VALUES
+INSERT INTO `tugas` (`id`, `kode_matkul`, `judul`, `keterangan`, `nama_file`) VALUES
 (1, 'IF502', 'Pseudocode', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', ''),
 (2, 'IF502', 'Looping', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', ''),
-(3, 'IF503', 'lalala', 'yeyeye', NULL),
-(4, 'IF502', 'lelelele', 'iwak peyek', NULL);
+(4, 'IF502', 'lelelele', 'iwak peyek', NULL),
+(8, 'IF301', 'Tugas asdfasdf', 'adsfadsf', NULL),
+(16, 'IF503', 'Tugas SUSAH POL LO', 'AWW', 'Reinaldo_311610015_BI.pdf');
 
 --
 -- Indexes for dumped tables
@@ -392,7 +409,7 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT for table `absen_tif`
 --
 ALTER TABLE `absen_tif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `ajar_tif`
 --
@@ -422,12 +439,12 @@ ALTER TABLE `krs_temp_tif`
 -- AUTO_INCREMENT for table `nilai_tif`
 --
 ALTER TABLE `nilai_tif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Constraints for dumped tables
 --

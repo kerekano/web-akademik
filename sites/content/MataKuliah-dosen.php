@@ -119,43 +119,32 @@
                                         <tr>
                                           <td>Nama</td>
                                           <td>:</td>
-                                          <td></td>
+                                          <td id="nm-mhs"></td>
                                         </tr>
                                         <tr>
                                           <td>NIM</td>
                                           <td>:</td>
-                                          <td>311610010</td>
+                                          <td id="nim-mhs">311610010</td>
                                         </tr>
                                         <tr>
                                           <td>Program Studi</td>
                                           <td>:</td>
-                                          <td>Teknik Informatika</td>
+                                          <td id="prodi-mhs">Teknik Informatika</td>
                                         </tr>
                                       </table>
                                   </div>
                                   <div class="modal-body">
-                                      <table class="table table-bordered">
-                                        <tr>
-                                          <th style="width:10px">No.</th>
-                                          <th>Jenis Kuis</th>
-                                          <th>Score</th>
-                                          <th>Tanggal</th>
-                                          <th>Keterangan</th>
-                                        </tr>
-                                        <tr>
-                                          <td>1.</td>
-                                          <td>Kuis Kecil 1</td>
-                                          <td>85</td>
-                                          <td>25 Agustus 2018</td>
-                                          <td>Soal Cerita</td>
-                                        </tr>
-                                        <tr>
-                                          <td>2.</td>
-                                          <td>Kuis Kecil 2</td>
-                                          <td>85</td>
-                                          <td>25 Agustus 2018</td>
-                                          <td>-</td>
-                                        </tr>
+                                      <table class="table table-bordered" id="dsn-nilai">
+                                          <thead>
+                                              <tr>
+                                                  <th style="width:10px">No.</th>
+                                                  <th>Jenis Kuis</th>
+                                                  <th>Score</th>
+                                                  <th>Tanggal</th>
+                                                  <th>Keterangan</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody></tbody>
                                       </table>
                                   </div>
                                   <div class="modal-footer">
@@ -165,26 +154,26 @@
                                         <div class="row">
                                           <div class="form-group col-md-6" style="text-align:left;">
                                             <label>Nilai</label>
-                                            <input type="number" class="form-control" placeholder="example. 90,72">
+                                            <input type="number" class="form-control" id="input-nilai" placeholder="example. 90,72" min="0" max="100">
                                           </div>
                                           <div class="form-group col-md-6" style="text-align:left;">
                                             <label>Tipe</label>
-                                            <select class="form-control" style="width: 100%;">
-                                              <option selected="selected">Kuis Kecil 1</option>
-                                              <option>Kuis Kecil 2</option>
-                                              <option>Kuis Kecil 3</option>
-                                              <option>Kuis Kecil 4</option>
-                                              <option>Kuis Kecil 5</option>
-                                              <option>Kuis Kecil 6</option>
-                                              <option>Kuis Kecil 7</option>
-                                              <option>Kuis Kecil 8</option>
-                                              <option>Kuis Kecil 9</option>
-                                              <option>Kuis Kecil 10</option>
-                                              <option>Kuis Besar 1</option>
-                                              <option>Kuis Besar 2</option>
-                                              <option>Kuis Besar 3</option>
-                                              <option>Kuis Besar 4</option>
-                                              <option>UAS</option>
+                                            <select class="form-control" style="width: 100%;" id="input-tipe">
+                                              <option selected="selected" name="jns-matkul" value="Kuis Kecil 1">Kuis Kecil 1</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 2">Kuis Kecil 2</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 3">Kuis Kecil 3</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 4">Kuis Kecil 4</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 5">Kuis Kecil 5</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 6">Kuis Kecil 6</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 7">Kuis Kecil 7</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 8">Kuis Kecil 8</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 9">Kuis Kecil 9</option>
+                                              <option name="jns-matkul" value="Kuis Kecil 10">Kuis Kecil 10</option>
+                                              <option name="jns-matkul" value="Kuis Besar 1">Kuis Besar 1</option>
+                                              <option name="jns-matkul" value="Kuis Besar 2">Kuis Besar 2</option>
+                                              <option name="jns-matkul" value="Kuis Besar 3">Kuis Besar 3</option>
+                                              <option name="jns-matkul" value="Kuis Besar 4">Kuis Besar 4</option>
+                                              <option name="jns-matkul" value="UAS">UAS</option>
                                             </select>
                                           </div>
                                         </div>
@@ -192,16 +181,16 @@
                                         <div class="row">
                                           <div class="form-group col-md-6" style="text-align:left;">
                                             <label>Tanggal</label>
-                                            <input type="date" class="form-control">
+                                            <input type="date" class="form-control" id="input-tgl">
                                           </div>
                                           <div class="form-group col-md-6" style="text-align:left;">
                                             <label>Keterangan</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="input-ket">
                                           </div>
                                         </div>
                                       </div>
                                       <div class="box-footer" style>
-                                        <button type="button" class="btn btn-info btn-lg" style="padding: 100px 25px;">Tambah Nilai</button>
+                                        <button type="button" class="btn btn-info btn-lg" id="sbt-nilai" style="padding: 100px 25px;">Tambah Nilai</button>
                                       </div>
                                     </form>
                                   </div>
@@ -278,28 +267,31 @@
                                         <tr>
                                           <td>Nama</td>
                                           <td>:</td>
-                                          <td>Kevin Christian Chandra</td>
+                                          <td id="nm_mhs"></td>
                                         </tr>
                                         <tr>
                                           <td>NIM</td>
                                           <td>:</td>
-                                          <td>311610010</td>
+                                          <td id="nim_mhs"></td>
                                         </tr>
                                         <tr>
                                           <td>Program Studi</td>
                                           <td>:</td>
-                                          <td>Teknik Informatika</td>
+                                          <td id="prodi_mhs">Teknik Informatika</td>
                                         </tr>
                                       </table>
                                   </div>
                                   <div class="modal-body">
-                                      <table class="table table-bordered">
-                                        <tr>
-                                          <th style="width:10px">No.</th>
-                                          <th>Materi</th>
-                                          <th>Absen</th>
-                                          <th>Tanggal</th>
-                                        </tr>
+                                      <table class="table table-bordered" id="dsn-absen">
+                                          <thead>
+                                            <tr>
+                                              <th style="width:10px">No.</th>
+                                              <th>Materi</th>
+                                              <th>Absen</th>
+                                              <th>Tanggal</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody></tbody>
                                         <tr>
                                           <td>1.</td>
                                           <td>Menggambar</td>
@@ -322,23 +314,27 @@
                                   </div>
                                   <div class="modal-footer">
                                     <form>
-                                      <div class="box-body col-md-10" style="float:left;">
-                                        <div class="form-group col-md-4" style="text-align:left;">
+                                      <div class="box-body col-md-12" style="float:left;">
+                                        <div class="form-group col-md-3" style="text-align:left;">
                                           <label>Tanggal</label>
-                                          <input type="date" class="form-control">
+                                          <input type="date" class="form-control" id="input_tgl">
                                         </div>
-                                        <div class="form-group col-md-4" style="text-align:left;">
+                                          <div class="form-group col-md-4" style="text-align:left;">
+                                              <label>Materi</label>
+                                              <input type="text" class="form-control" id="input_materi">
+                                          </div>
+                                        <div class="form-group col-md-3" style="text-align:left;">
                                           <label>Tipe</label>
-                                          <select class="form-control" style="width: 100%;">
+                                          <select class="form-control" style="width: 100%;" id="input_tipe">
                                             <option selected="selected">Hadir</option>
                                             <option>Izin</option>
                                             <option>Alpha</option>
                                           </select>
                                         </div>
                                       </div>
-                                      <div class="box-footer col-md-2" style>
+                                      <div class="box-body col-md-2 pull-right">
                                         <br>
-                                        <button type="button" class="btn btn-info btn-lg">Commit</button>
+                                        <button type="button" id="sbt_absen" class="btn btn-info btn-lg">Commit</button>
                                       </div>
                                     </form>
                                   </div>
@@ -357,54 +353,21 @@
                               <div class="modal-content">
                                   <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h3 class="modal-title">Algoritma</h3>
+                                      <h3 class="modal-title" id="materi-title"></h3>
                                       <h5>Daftar Mahasiswa</h5>
                                   </div>
                                   <div class="modal-body">
-                                      <table class="table table-bordered">
-                                        <tr>
-                                          <th style="width: 10px">No.</th>
-                                          <th>Materi</th>
-                                          <th>Tanggal</th>
-                                          <th>Keterangan</th>
-                                          <th><center>Option</center></th>
-                                        </tr>
-                                        <tr>
-                                          <td>1.</td>
-                                          <td>Materi Morfological Imaging</td>
-                                          <td>02 Februari 2016</td>
-                                          <td>Materi bab 1</td>
-                                          <td>
-                                            <center>
-                                              <button type="button" class="btn btn-success btn-med">Download</button>
-                                              <button type="button" class="btn btn-danger btn-med">Delete</button>
-                                            </center>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>2.</td>
-                                          <td>Tugas Morfological Imaging</td>
-                                          <td>02 Februari 2016</td>
-                                          <td>Tugas deadline 2 minggu</td>
-                                          <td>
-                                            <center>
-                                              <button type="button" class="btn btn-success btn-med">Download</button>
-                                              <button type="button" class="btn btn-danger btn-med">Delete</button>
-                                            </center>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td>3.</td>
-                                          <td>Pembahasan Morfological Imaging</td>
-                                          <td>16 Februari 2016</td>
-                                          <td>Periksa materi</td>
-                                          <td>
-                                            <center>
-                                              <button type="button" class="btn btn-success btn-med">Download</button>
-                                              <button type="button" class="btn btn-danger btn-med">Delete</button>
-                                            </center>
-                                          </td>
-                                        </tr>
+                                      <table class="table table-bordered" id="table-materi">
+                                          <thead>
+                                            <tr>
+                                              <th style="width: 10px">No.</th>
+                                              <th>Materi</th>
+                                              <th>Tanggal</th>
+                                              <th>Keterangan</th>
+                                              <th><center>Option</center></th>
+                                            </tr>
+                                          </thead>
+                                          <tbody></tbody>
                                         <tr>
                                           <td colspan="5">
                                             <button type="button" style="width:100%;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalInputMateri">
@@ -432,28 +395,29 @@
                                       <div class="row">
                                         <div class="form-group col-md-4" style="text-align:left;">
                                           <label>Judul</label>
-                                          <input type="text" class="form-control" required>
+                                          <input type="text" class="form-control" id="jdl-tgs" required>
                                         </div>
                                         <div class="form-group col-md-4" style="text-align:left;">
                                           <label>Tipe</label>
-                                          <select class="form-control" style="width: 100%;" required>
-                                            <option selected="selected">Materi</option>
-                                            <option>Tugas</option>
+                                          <select class="form-control" style="width: 100%;" id="tp-tgs" required>
+                                            <option selected="selected" value="materi">Materi</option>
+                                            <option value="tugas">Tugas</option>
                                           </select>
                                         </div>
                                       </div>
                                       <div class="row">
                                         <div class="form-group col-md-5" style="text-align:left;">
-                                          <input type="text" class="form-control" readonly required>
+                                          <input type="text" class="form-control" id="jdl-file" readonly required>
                                         </div>
                                         <div class="form-group col-md-3" style="text-align:left;">
-                                          <button type="button" class="btn btn-default btn-med">Upload</button>
+                                          <button type="button" class="btn btn-default btn-med" onclick="uploadTugas()">Upload</button>
+                                            <input type="file" id="tgsUp" onchange="getFileName(this)" style="overflow: hidden;height:0px;">
                                         </div>
                                       </div>
                                       <div class="row">
                                         <div class="form-group col-md-12" style="text-align:left;">
                                           Keterangan<br>
-                                          <textarea name="isi_artikel" cols="60" rows="10" required></textarea><br>
+                                          <textarea name="isi_artikel" cols="60" rows="10" id="ket-tgs" required></textarea><br>
                                           <p style="color:#ff0000;">
                                               <span>*gunakan <</span><span>br> </span><span>untuk enter</span>
                                           </p>
@@ -461,7 +425,7 @@
                                       </div>
                                   </div>
                                   <div class="modal-footer">
-                                      <button type="button" class="btn btn-info btn-lg">Commit</button>
+                                      <button type="button" class="btn btn-info btn-lg" id="commit-tgs">Commit</button>
                                       </form>
                                   </div>
                               </div>
