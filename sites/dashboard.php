@@ -90,7 +90,7 @@
 
   <?php
     include('header.php');
-    include('sidebar.php');
+    include('sidebar-dosen.php');
    ?>
 
   <!-- Wrapper. Contains page content -->

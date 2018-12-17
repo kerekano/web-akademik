@@ -318,8 +318,8 @@
                                           <td>Teknik Informatika</td>
                                           <td>
                                             <center>
-                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalNilai">Nilai</button>
-                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalAbsen">Absen</button>
+                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalInputNilai">Nilai</button>
+                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalInputAbsen">Absen</button>
                                             </center>
                                           </td>
                                         </tr>
@@ -330,8 +330,8 @@
                                           <td>Teknik Informatika</td>
                                           <td>
                                             <center>
-                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalNilai">Nilai</button>
-                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalAbsen">Absen</button>
+                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalInputNilai">Nilai</button>
+                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalInputAbsen">Absen</button>
                                             </center>
                                           </td>
                                         </tr>
@@ -342,8 +342,8 @@
                                           <td>Manajemen</td>
                                           <td>
                                             <center>
-                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalNilai">Nilai</button>
-                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalAbsen">Absen</button>
+                                              <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalInputNilai">Nilai</button>
+                                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalInputAbsen">Absen</button>
                                             </center>
                                           </td>
                                         </tr>
@@ -353,62 +353,6 @@
                           </div>
                       </div>
                       <!-- /.Modal Murid -->
-
-                      <!-- Modal Daftar Nilai -->
-                      <div class="modal fade" id="modalNilai" role="dialog">
-                          <div class="modal-dialog modal-lg">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h3 class="modal-title">Input Nilai</h3>
-                                      <table class="table" style="width:50%;">
-                                        <tr>
-                                          <td>Nama</td>
-                                          <td>:</td>
-                                          <td>Kevin Christian Chandra</td>
-                                        </tr>
-                                        <tr>
-                                          <td>NIM</td>
-                                          <td>:</td>
-                                          <td>311610010</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Program Studi</td>
-                                          <td>:</td>
-                                          <td>Teknik Informatika</td>
-                                        </tr>
-                                      </table>
-                                  </div>
-                                  <div class="modal-body">
-                                      <table class="table table-bordered">
-                                        <tr>
-                                          <th style="width:10px">No.</th>
-                                          <th>Jenis Kuis</th>
-                                          <th>Score</th>
-                                          <th>Tanggal</th>
-                                        </tr>
-                                        <tr>
-                                          <td>1.</td>
-                                          <td>Kuis Kecil 1</td>
-                                          <td>85</td>
-                                          <td>25 Agustus 2018</td>
-                                        </tr>
-                                        <tr>
-                                          <td>2.</td>
-                                          <td>Kuis Kecil 2</td>
-                                          <td>85</td>
-                                          <td>25 Agustus 2018</td>
-                                        </tr>
-                                      </table>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalInputNilai">Tambah Nilai</button>
-                                  </div>
-                              </div>
-                              <!-- ./Modal content -->
-                          </div>
-                      </div>
-                      <!-- /.Modal Daftar Nilai -->
 
                       <!-- Modal Input Nilai -->
                       <div class="modal fade" id="modalInputNilai" role="dialog">
@@ -512,62 +456,6 @@
                           </div>
                       </div>
                       <!-- /.Modal Input Nilai -->
-
-                      <!-- Modal Daftar Absensi -->
-                      <div class="modal fade" id="modalAbsen" role="dialog">
-                          <div class="modal-dialog modal-lg">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h3 class="modal-title">Input Nilai</h3>
-                                      <table class="table" style="width:50%;">
-                                        <tr>
-                                          <td>Nama</td>
-                                          <td>:</td>
-                                          <td>Kevin Christian Chandra</td>
-                                        </tr>
-                                        <tr>
-                                          <td>NIM</td>
-                                          <td>:</td>
-                                          <td>311610010</td>
-                                        </tr>
-                                        <tr>
-                                          <td>Program Studi</td>
-                                          <td>:</td>
-                                          <td>Teknik Informatika</td>
-                                        </tr>
-                                      </table>
-                                  </div>
-                                  <div class="modal-body">
-                                      <table class="table table-bordered">
-                                        <tr>
-                                          <th style="width:10px">No.</th>
-                                          <th>Materi</th>
-                                          <th>Absen</th>
-                                          <th>Tanggal</th>
-                                        </tr>
-                                        <tr>
-                                          <td>1.</td>
-                                          <td>Menggambar</td>
-                                          <td>Hadir</td>
-                                          <td>25 Agustus 2018</td>
-                                        </tr>
-                                        <tr>
-                                          <td>2.</td>
-                                          <td>Menulis</td>
-                                          <td>Izin</td>
-                                          <td>25 Agustus 2018</td>
-                                        </tr>
-                                      </table>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalInputAbsen">Tambah Absen</button>
-                                  </div>
-                              </div>
-                              <!-- ./Modal content -->
-                          </div>
-                      </div>
-                      <!-- /.Modal Daftar Absensi -->
 
                       <!-- Modal Input Absen -->
                       <div class="modal fade" id="modalInputAbsen" role="dialog">
