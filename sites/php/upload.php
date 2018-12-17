@@ -34,7 +34,11 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
         $db = mysqli_select_db($mysql,DB_Table);
-        $sql = "UPDATE id_desc SET img = '$temp_name' WHERE nim = '$nim'";
+        if(strlen($nim)>5) {
+            $sql = "UPDATE id_desc SET img = '$temp_name' WHERE nim = '$nim'";
+        } else {
+            $sql = "UPDATE dosen SET img = '$temp_name' WHERE id = '$nim'";
+        }
         $query = mysqli_query($mysql, $sql);
         echo "";
     } else {

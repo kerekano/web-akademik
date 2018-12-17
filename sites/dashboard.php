@@ -12,8 +12,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="./css/AdminLTE.min.css">
   <link rel="stylesheet" href="./css/_all-skins.min.css">
 
+    <link href="./css/icheck/blue.css" rel="stylesheet">
     <!-- jQuery 2.2.3 -->
     <script src="./js/jquery-2.2.3.min.js"></script>
     <!-- Bootstrap 3.3.6 -->
@@ -34,6 +35,9 @@
     <script src="./js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="./js/demo.js"></script>
+    <!-- <Icheck js -->
+    <script src="./js/icheck.js"></script>
+
   <!-- AJAX -->
   <script type="text/javascript">
 
@@ -68,10 +72,15 @@
                       obj.innerHTML = '<div class="content-wrapper"><section class="content"><div class="row"><div class="col-md-12" style=";height:100vh;background-image: url(./img/loader.gif);background-attachment:fixed;background-position:center;background-repeat: no-repeat;"></div></div></section></div>';
                   }
                   if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                      // obj.innerHTML = '<div class="content-wrapper"><section class="content"><div class="row"><div class="col-md-12" style=";height:100vh;background-image: url(\'./img/loader.gif\');background-attachment:fixed;background-position:center;background-repeat: no-repeat;"></div></div></section></div>';
                       obj.innerHTML = xmlHttp.responseText;
                       $(obj).find("script").each(function(i) {
                           eval($(this).text());
+                      });
+                      // icheck checking
+                      $(document).ready(function(){
+                          $('input').iCheck({
+                              checkboxClass: 'icheckbox_flat-blue'
+                          });
                       });
                   }
               }
@@ -82,6 +91,9 @@
 
   </script>
     <script>
+        var totalKrs = 0;
+        var krsGet = 0;
+
         function getTugas(){
             $(function() {
                 $.ajax({
@@ -182,7 +194,8 @@
                     error: function(error) {
                     }
                 });
-            });}
+            });
+        }
         function getAbsen(a){
             $(function() {
                 $.ajax({
@@ -235,6 +248,8 @@
                         $("#pa").text(myObj['PA']);
                         $("#prodi").text(myObj['Prodi']);
                         $("#angkatan").text('20'+angkatan);
+                        $("#sks").text(myObj['SKS']);
+                        krsGet = parseInt(myObj['SKS']);
                     },
                     error: function(error) {
                     }
@@ -280,9 +295,328 @@
                     }
                 });
             });
+        };
+        var sksCheck = 0
+        function checkSKS(a){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {checked:a},
+                    url: 'php/cekSks.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        if(myObj<krsGet){
+                            sksCheck =1;
+                        } else
+                            sksCheck =0;
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function submitKrs(){
+            var value =[];
+            $("input:checkbox[name=iCheck]:checked").each(function(){
+                value.push($(this).val());
+            });
+            checkSKS(value);
+            if(sksCheck ==1){
+                console.log('aa');
+                $(function() {
+                    $.ajax({
+                        type: 'POST',
+                        data: {checked:value},
+                        url: 'php/insertKrs.php',
+                        success: function(response) {
+                            var myObj = JSON.parse(response);
+                            javascript:getpages('./content/KrsDanKhs.php','centercol');
+                        },
+                        error: function(error) {
+                        }
+                    });
+                });
+            }
+        };
+        function getKrs() {
+            totalKrs=0;
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/krs.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        var krs = document.getElementById("total-sks");
+                        var table = document.getElementById("table-krs");
+                        var length = myObj['Available'].length;
+                        var i=1;
+                        while(i<=length){
+                            var row = table.insertRow(i);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            cell1.innerHTML = i + ".";
+                            cell2.innerHTML = myObj['Available'][i-1]['Kode'];
+                            cell3.innerHTML = myObj['Available'][i-1]['Nama'];
+                            cell4.innerHTML = myObj['Available'][i-1]['SKS'];
+                            cell5.innerHTML = "<center>\n" +
+                                "                        <input type=\"checkbox\" name=\"iCheck\" value=\""+ myObj['Available'][i-1]['Kode'] +"\">\n" +
+                                "                      </center>";
+                            i++;
+                        }
+                        //chosen
+                        table = document.getElementById("table-temp");
+                        length = myObj['Chosen'].length;
+                        i = 1;
+                        while (i <= length) {
+                            var row = table.insertRow(i);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            cell1.innerHTML = i + ".";
+                            cell2.innerHTML = myObj['Chosen'][i - 1]['Kode'];
+                            cell3.innerHTML = myObj['Chosen'][i - 1]['Nama'];
+                            cell4.innerHTML = myObj['Chosen'][i - 1]['SKS'];
+                            totalKrs+=parseInt(myObj['Chosen'][i - 1]['SKS']);
+                            cell5.innerHTML = "<center>\n" +
+                                "<button type=\"button\" onclick=\"deleteKrs('"+myObj['Chosen'][i - 1]['Kode']+"')\"  class=\"btn btn-danger btn-med\">Delete</button>\n" +
+                                "</center>";
+                            i++;
+                        }
+                        krs.innerHTML = totalKrs;
+                        $('input').iCheck({
+                            checkboxClass: 'icheckbox_flat-blue'
+                        });
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function deleteKrs(a){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a},
+                    url: 'php/deleteKrs.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        javascript:getpages('./content/KrsDanKhs.php','centercol');
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
         }
     </script>
   <!-- END AJAX -->
+
+    <!--DOSEN-->
+    <script>
+        function getDosenDashboard(){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/dosen/main.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        $(".profil-ms").text(myObj['Nama']);
+                        $("#nim").text(myObj['NIP']);
+                        $("#prodi").text(myObj['Prodi']);
+                        $(".kerja").text(myObj['Kerja']);
+                        $(".aktivitas").text(myObj['Aktivitas']);
+                        $(".masuk").text(myObj['Masuk']);
+                        $(".pp").attr('src',"img/" + myObj['pp']);
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function getPA(){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/dosen/pa.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        table = document.getElementById("table-pa");
+                        var length = myObj.length;
+                        var i=1;
+                        while(i<=length){
+                            var row = table.insertRow(i);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            var cell6 = row.insertCell(5);
+                            var cell7 = row.insertCell(6);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = myObj[i-1]['nama'];
+                            cell3.innerHTML = myObj[i-1]['nim'];
+                            cell4.innerHTML = myObj[i-1]['status'];
+                            cell5.innerHTML = myObj[i-1]['ipk'];
+                            cell6.innerHTML = myObj[i-1]['sks'];
+                            cell7.innerHTML = "<center>\n" +
+                                "                        <button type=\"button\" onclick=\"validate('"+ myObj[i-1]['nim'] +"')\" class=\"btn btn-warning btn-sm\">Validasi</button>\n" +
+                                "                      </center>"
+                            i++;
+                        }
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function validate(a){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data:{a:a},
+                    url: 'php/dosen/validate.php',
+                    success: function(response) {
+                        javascript:getpages('./content/Pa.php','centercol');
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function getMatkulDosen(){
+            var myObj;
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/dosen/matkul.php',
+                    success: function(response) {
+                        myObj = JSON.parse(response);
+                        var length = myObj.length;
+                        console.log(length);
+                        var i =0;
+                        matkul = document.getElementById("matkul-dsn");
+                        while (i<length){
+                            var node = document.createElement("div");
+                            node.id = "matkul";
+                            node.innerHTML ="<!-- MATAKULIAH_1 -->\n" +
+                                "                <div class=\"col-md-4\">\n" +
+                                "                  <div class=\"box box-default collapsed-box box-solid\">\n" +
+                                "                    <div class=\"box-header with-border\">\n" +
+                                "                        <h3 class=\"box-title matkul-judul\"></h3>\n" +
+                                "\n" +
+                                "                      <div class=\"box-tools pull-right\">\n" +
+                                "                        <button type=\"button\" class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-plus\"></i></button>\n" +
+                                "                      </div>\n" +
+                                "                      <!-- /.box-tools -->\n" +
+                                "                    </div>\n" +
+                                "                    <!-- /.box-header -->\n" +
+                                "                    <div class=\"box-body\">\n" +
+                                "                      <ul class=\"products-list product-list-in-box\">\n" +
+                                "                        <!-- NILAI DAN ABSEN -->\n" +
+                                "                        <a href=\"#modalMurid\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMurid\">\n" +
+                                "                          <li class=\"item\">\n" +
+                                "                            <div class=\"product-img\">\n" +
+                                "                              <img src=\"./img/profile.png\">\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"product-info\">\n" +
+                                "                              <a class=\"product-title\" onclick=\"getMhs('"+ myObj[i]["Matkul"]+"')\"href=\"#modalMurid\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMurid\">\n" +
+                                "                                Murid di dalam kelas\n" +
+                                "                              </a>\n" +
+                                "                                  <span class=\"product-description\">\n" +
+                                "                                    Absensi dan penilaian mahasiswa\n" +
+                                "                                  </span>\n" +
+                                "                            </div>\n" +
+                                "                          </li>\n" +
+                                "                        </a>\n" +
+                                "                        <!-- TUGAS DAN MATERI -->\n" +
+                                "                        <a href=\"#modalMateri\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMateri\">\n" +
+                                "                          <li class=\"item\">\n" +
+                                "                            <div class=\"product-img\">\n" +
+                                "                              <img src=\"./img/tugasdanmateri.png\">\n" +
+                                "                            </div>\n" +
+                                "                            <div class=\"product-info\">\n" +
+                                "                              <a class=\"product-title\" href=\"#modalMateri\" data-toggle=\"modal\" data-toggle=\"modal\" data-target=\"#modalMateri\">\n" +
+                                "                                Tugas Dan Materi\n" +
+                                "                              </a>\n" +
+                                "                                  <span class=\"product-description\">\n" +
+                                "                                    Materi Setiap Pertemuan.\n" +
+                                "                                  </span>\n" +
+                                "                            </div>\n" +
+                                "                          </li>\n" +
+                                "                        </a>\n" +
+                                "                      </ul>\n" +
+                                "                    </div>\n" +
+                                "                    <!-- /.box-body -->\n" +
+                                "                  </div>\n" +
+                                "                  <!-- /.box -->\n" +
+                                "                </div>\n" +
+                                "                <!-- /.MATAKULIAH_1 -->"
+                            matkul.appendChild(node);
+                            document.getElementsByClassName("matkul-judul")[i].innerHTML = myObj[i]["Matkul"];
+                            i++;
+                        }
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        };
+        function getMhs(a){
+            document.getElementById("nm-modal").innerText = a;
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a},
+                    url: 'php/dosen/mhs.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+                        var table = document.getElementById("table-mhs").getElementsByTagName('tbody')[0];
+                        $('#table-mhs tbody').empty();
+                        var length = myObj.length;
+                        var i=1;
+                        while(i<=length) {
+                            var row = table.insertRow(i-1);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+                            var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
+                            cell1.innerHTML = i;
+                            cell2.innerHTML = myObj[i - 1]['Nama'];
+                            cell3.innerHTML = myObj[i - 1]['nim'];
+                            cell4.innerHTML =  myObj[i - 1]['Prodi'];
+                            cell5.innerHTML =  "<center>\n" +
+                                "<button type=\"button\" onclick=\"nilaiDsn('"+myObj[i - 1]['nim']+"')\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#modalNilai\">Nilai</button>\n" +
+                                "<button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#modalAbsen\">Absen</button>\n" +
+                                "</center>";
+                            i++;
+                        }
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+        function nilaiDsn(){
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a},
+                    url: 'php/dosen/nilaiMhs.php',
+                    success: function(response) {
+                        var myObj = JSON.parse(response);
+
+                    },
+                    error: function(error) {
+                    }
+                });
+            });
+        }
+    </script>
 
 </head>
 <body class="hold-transition skin-black sidebar-mini">
@@ -290,7 +624,11 @@
 
   <?php
     include('header.php');
-    include('sidebar.php');
+  if($_SESSION['login_auth']==0) {
+      include('sidebar.php');
+  }  else if($_SESSION['login_auth']==1){
+      include('sidebar-dosen.php');
+  }
    ?>
 
   <!-- Wrapper. Contains page content -->
@@ -299,7 +637,11 @@
   <div class="content-wrapper"  id="centercol">
       <!-- content -->
       <?php
-      include('content/Main.php');
+      if($_SESSION['login_auth']==0){
+        include('content/Main.php');
+      } else if($_SESSION['login_auth']==1){
+          include('content/Main-dosen.php');
+      }
       ?>
       <!-- /.content -->
   </div>
@@ -307,7 +649,9 @@
       include('./footer.php');
      ?>
   </div>
-<!-- ./wrapper -->
+    <div class="control-sidebar-bg"></div>
+
+    <!-- ./wrapper -->
 </div>
 
 </body>

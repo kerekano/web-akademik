@@ -15,7 +15,7 @@
                 "Kode"=>$row['kode_matkul']
         );
     }
-    $sql = "SELECT DISTINCT tugas.kode_matkul,m.nama_matkul FROM tugas JOIN matakuliah m on tugas.kode_matkul = m.kode_matkul";
+    $sql = "SELECT DISTINCT tugas.kode_matkul,m.nama_matkul FROM (tugas JOIN matakuliah m on tugas.kode_matkul = m.kode_matkul)JOIN ikutmatkul on tugas.kode_matkul = ikutmatkul.kode_matkul WHERE nim ='$nim' ";
     $query = mysqli_query($mysql, $sql);
     $return1 = array();
     while($row = mysqli_fetch_assoc($query)){

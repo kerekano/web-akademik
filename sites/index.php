@@ -43,6 +43,8 @@ if(isset($_SESSION['login_user'])){
                 $row = mysqli_num_rows($query);
                 if($row == 1 ){
                     $_SESSION['login_user']=$user; // Initializing Session
+                    $row1 = mysqli_fetch_assoc($query);
+                    $_SESSION['login_auth']=$row1['auth']; // Initializing Session
                     header("location: dashboard.php"); // Redirecting To Other Page
                 }else{
                     ?>
