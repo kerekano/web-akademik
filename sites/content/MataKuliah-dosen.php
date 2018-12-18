@@ -387,7 +387,7 @@
                           <div class="modal-dialog modal-lg">
                               <div class="modal-content">
                                   <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <button type="button" class="close" id='tugas-close' data-dismiss="modal">&times;</button>
                                       <h4 class="modal-title">Input Tugas dan Materi</h4>
                                   </div>
                                   <div class="modal-body col-md-12">
