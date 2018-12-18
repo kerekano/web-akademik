@@ -40,7 +40,7 @@
         <item name="uasweb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="uasweb: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tugas: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="absen_tif: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -72,19 +72,19 @@
           <entry key="krs_temp_tif" value="1" />
           <entry key="matakuliah" value="4" />
           <entry key="nilai_tif" value="2" />
-          <entry key="php" value="145" />
+          <entry key="php" value="153" />
           <entry key="prodi" value="1" />
           <entry key="rnc" value="3" />
           <entry key="sql" value="31" />
           <entry key="ts" value="5" />
-          <entry key="tugas" value="5" />
+          <entry key="tugas" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="30" />
+          <entry key="Database Element" value="31" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="145" />
+          <entry key="PHP" value="153" />
           <entry key="RNG Compact" value="3" />
           <entry key="SQL" value="7" />
           <entry key="Scratch" value="24" />
@@ -93,38 +93,105 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="681" />
-          <entry key="php" value="14321" />
+          <entry key="cell" value="688" />
+          <entry key="php" value="15211" />
           <entry key="sql" value="261" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="14314" />
+          <entry key="PHP" value="15204" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="7" />
-          <entry key="Scratch" value="942" />
+          <entry key="Scratch" value="949" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="767" column="70" selection-start-line="767" selection-start-column="70" selection-end-line="767" selection-end-column="70" />
+            <state relative-caret-position="109">
+              <caret line="727" column="43" selection-start-line="727" selection-start-column="43" selection-end-line="727" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#td#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/dosen/delete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/dosen/materi.php">
+        <entry file="file://$PROJECT_DIR$/php/dosen/deleteTgs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state relative-caret-position="231">
+              <caret line="11" column="2" lean-forward="true" selection-end-line="11" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/Main-dosen.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="75" column="51" lean-forward="true" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/tugas">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/tugas.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/matkul.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/MataKuliah.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/content/TugasDanMateri.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -132,29 +199,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/content/MataKuliah-dosen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="389" column="91" selection-start-line="389" selection-start-column="91" selection-end-line="389" selection-end-column="91" />
+            <state relative-caret-position="1201">
+              <caret line="407" column="55" lean-forward="true" selection-start-line="407" selection-start-column="55" selection-end-line="408" selection-end-column="98" />
               <folding>
                 <element signature="e#23172#23179#1#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sidebar-dosen.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="14" column="97" selection-start-line="14" selection-start-column="97" selection-end-line="14" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/dosen/inputTgs.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -163,7 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tugas-title</find>
       <find>krs</find>
       <find>check</find>
       <find>async</find>
@@ -187,21 +235,24 @@
       <find>insertKrs</find>
       <find>validate</find>
       <find>tgs</find>
-      <find>commit</find>
       <find>class=&quot;close&quot;</find>
+      <find>commit</find>
+      <find>matkul.</find>
+      <find>tugas</find>
+      <find>matkuldosen</find>
+      <find>vali</find>
+      <find>deleteDat</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/php/matkul.php" />
         <option value="$PROJECT_DIR$/php/nilai.php" />
         <option value="$PROJECT_DIR$/php/absen.php" />
         <option value="$PROJECT_DIR$/content/MataKuliah.php" />
         <option value="$PROJECT_DIR$/content/TugasDanMateri.php" />
         <option value="$PROJECT_DIR$/../../uasGit/web-akademik/sites/dashboard.php" />
         <option value="$PROJECT_DIR$/php/main.php" />
-        <option value="$PROJECT_DIR$/php/tugas.php" />
         <option value="$PROJECT_DIR$/php/krs.php" />
         <option value="$PROJECT_DIR$/php/cekSks.php" />
         <option value="$PROJECT_DIR$/php/insertKrs.php" />
@@ -230,7 +281,10 @@
         <option value="$PROJECT_DIR$/php/dosen/validate.php" />
         <option value="$PROJECT_DIR$/php/dosen/materi.php" />
         <option value="$PROJECT_DIR$/content/MataKuliah-dosen.php" />
+        <option value="$PROJECT_DIR$/php/matkul.php" />
+        <option value="$PROJECT_DIR$/php/tugas.php" />
         <option value="$PROJECT_DIR$/dashboard.php" />
+        <option value="$PROJECT_DIR$/php/dosen/delete.php" />
       </list>
     </option>
   </component>
@@ -283,7 +337,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -317,18 +371,18 @@
       <workItem from="1544947339431" duration="4018000" />
       <workItem from="1544981443008" duration="965000" />
       <workItem from="1545015855112" duration="21717000" />
-      <workItem from="1545095888114" duration="1687000" />
+      <workItem from="1545095888114" duration="6856000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87886000" />
+    <option name="totallyTimeSpent" value="93055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20619336" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20619336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -347,7 +401,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1918429" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.1918429" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,27 +411,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/cekSks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/nilai.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="22" lean-forward="true" selection-end-line="18" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/id.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/id">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -403,13 +436,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/Main-dosen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="75" column="51" lean-forward="true" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -469,13 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/matkul.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="236" selection-end-line="20" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/ajar_tif">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -494,13 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="106" selection-start-column="106" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/tugas">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -567,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/dosen/deleteTgs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/content/Main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -613,13 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/MataKuliah.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
@@ -690,9 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content/TugasDanMateri.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/sidebar-dosen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
@@ -700,20 +695,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/nilai.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="22" lean-forward="true" selection-end-line="18" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/matkul.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/TugasDanMateri.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d4ec285a-4ca7-4803-af22-67743d812cd5/schema/uasweb/table/tugas">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/tugas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/MataKuliah.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/content/MataKuliah-dosen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="389" column="91" selection-start-line="389" selection-start-column="91" selection-end-line="389" selection-end-column="91" />
+        <state relative-caret-position="1201">
+          <caret line="407" column="55" lean-forward="true" selection-start-line="407" selection-start-column="55" selection-end-line="408" selection-end-column="98" />
           <folding>
             <element signature="e#23172#23179#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/php/dosen/deleteTgs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="2" lean-forward="true" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/Main-dosen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="75" column="51" lean-forward="true" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="767" column="70" selection-start-line="767" selection-start-column="70" selection-end-line="767" selection-end-column="70" />
+        <state relative-caret-position="109">
+          <caret line="727" column="43" selection-start-line="727" selection-start-column="43" selection-end-line="727" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/dosen/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 06:38 PM
+-- Generation Time: Dec 18, 2018 at 04:52 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -36,13 +36,6 @@ CREATE TABLE `absen_tif` (
   `kehadiran` varchar(255) DEFAULT NULL,
   `tgl` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `absen_tif`
---
-
-INSERT INTO `absen_tif` (`id`, `kode_matkul`, `nim`, `materi`, `kehadiran`, `tgl`) VALUES
-(1, 'IF302', '311610015', 'Testing', 'Hadir', '2018-12-05');
 
 -- --------------------------------------------------------
 
@@ -87,7 +80,7 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`id`, `nama_dosen`, `program_studi`, `ikatan_kerja`, `aktivitas`, `masuk`, `img`) VALUES
-('IF001', 'Ir. Oesman Hendra Kelana, M.Div, M.Cs', '31', 'Dosen Tetap', 'Aktif Mengajar', '2008', 'IF503.pdf'),
+('IF001', 'Ir. Oesman Hendra Kelana, M.Div, M.Cs', '31', 'Dosen Tetap', 'Aktif Mengajar', '2008', 'if001.jpg'),
 ('IF002', 'Windra Swastika, Ph.D', '31', 'Dosen Tetap', 'Aktif Mengajar', '2009', 'profile.png'),
 ('IF003', 'Paulus Lucky Tirma Irawan, S.Kom., MT.', '31', 'Dosen Tetap', 'Aktif Mengajar', '2010', 'profile.png'),
 ('IF004', 'Dr.Eng. Romy Budhi Widodo', '31', 'Dosen Tetap', 'Aktif Mengajar', '2011', 'profile.png'),
@@ -162,13 +155,10 @@ CREATE TABLE `ikutmatkul` (
 --
 
 INSERT INTO `ikutmatkul` (`ikut_id`, `nim`, `kode_matkul`) VALUES
-(17, '311610015', 'IF302'),
-(18, '311610015', 'IF505'),
-(19, '311610015', 'IF506'),
-(20, '311610015', 'IF701'),
-(24, '311610015', 'IF504'),
-(25, '311610015', 'IF505'),
-(26, '311610015', 'IF506');
+(56, '311610010', 'IF701'),
+(57, '311610015', 'IF502'),
+(58, '311610015', 'IF503'),
+(59, '311610015', 'IF505');
 
 -- --------------------------------------------------------
 
@@ -258,13 +248,6 @@ CREATE TABLE `nilai_tif` (
   `tanggal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `nilai_tif`
---
-
-INSERT INTO `nilai_tif` (`id`, `kode_matkul`, `nim`, `jenis`, `nilai`, `keterangan`, `tanggal`) VALUES
-(6, 'IF302', '311610015', 'Kuis Kecil 1', 90, '', '0000-00-00');
-
 -- --------------------------------------------------------
 
 --
@@ -295,19 +278,22 @@ CREATE TABLE `tugas` (
   `kode_matkul` varchar(10) DEFAULT NULL,
   `judul` varchar(255) DEFAULT NULL,
   `keterangan` text,
-  `nama_file` varchar(255) DEFAULT NULL
+  `nama_file` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tugas`
 --
 
-INSERT INTO `tugas` (`id`, `kode_matkul`, `judul`, `keterangan`, `nama_file`) VALUES
-(1, 'IF502', 'Pseudocode', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', ''),
-(2, 'IF502', 'Looping', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', ''),
-(4, 'IF502', 'lelelele', 'iwak peyek', NULL),
-(8, 'IF301', 'Tugas asdfasdf', 'adsfadsf', NULL),
-(16, 'IF503', 'Tugas SUSAH POL LO', 'AWW', 'Reinaldo_311610015_BI.pdf');
+INSERT INTO `tugas` (`id`, `kode_matkul`, `judul`, `keterangan`, `nama_file`, `tanggal`) VALUES
+(1, 'IF502', 'Pseudocode', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', '', '1'),
+(2, 'IF502', 'Looping', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', '', '2'),
+(4, 'IF502', 'lelelele', 'iwak peyek', NULL, '3'),
+(8, 'IF301', 'Tugas asdfasdf', 'adsfadsf', NULL, '4'),
+(16, 'IF503', 'Tugas SUSAH POL LO', 'AWW', 'Reinaldo_311610015_BI.pdf', '5'),
+(17, 'IF503', 'Tugas Aduh susah', 'testing', 'Reinaldo_311610015_BI.pdf', '6'),
+(18, 'IF503', 'Tugas Fuzzy Logic', 'Coba coba', 'Reinaldo_311610015_BI.pdf', '7');
 
 --
 -- Indexes for dumped tables
@@ -409,7 +395,7 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT for table `absen_tif`
 --
 ALTER TABLE `absen_tif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ajar_tif`
 --
@@ -424,7 +410,7 @@ ALTER TABLE `id_desc`
 -- AUTO_INCREMENT for table `ikutmatkul`
 --
 ALTER TABLE `ikutmatkul`
-  MODIFY `ikut_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ikut_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `jadwal_kuliah`
 --
@@ -434,17 +420,17 @@ ALTER TABLE `jadwal_kuliah`
 -- AUTO_INCREMENT for table `krs_temp_tif`
 --
 ALTER TABLE `krs_temp_tif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `nilai_tif`
 --
 ALTER TABLE `nilai_tif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --

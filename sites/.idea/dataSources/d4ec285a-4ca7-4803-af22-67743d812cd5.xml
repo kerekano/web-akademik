@@ -1524,21 +1524,27 @@
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="260" name="file">
+    <column id="362" parent="260" name="nama_file">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="363" parent="260" name="kode_matkul">
+    <column id="363" parent="260" name="tanggal">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="364" parent="260" name="kode_matkul">
       <ColNames>kode_matkul</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="364" parent="260" name="PRIMARY">
+    <key id="365" parent="260" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="365" parent="260" name="tugas_ibfk_1">
+    <foreign-key id="366" parent="260" name="tugas_ibfk_1">
       <ColNames>kode_matkul</ColNames>
       <RefSchemaName>uasweb</RefSchemaName>
       <RefTableName>matakuliah</RefTableName>

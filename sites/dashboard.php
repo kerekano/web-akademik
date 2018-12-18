@@ -93,6 +93,7 @@ $nim = $_SESSION['login_user'];
     <script>
         var totalKrs = 0;
         var krsGet = 0;
+        var tanggal = 0;
 
         function getTugas(){
             $(function() {
@@ -139,6 +140,7 @@ $nim = $_SESSION['login_user'];
                                     var row = table.insertRow(count * 2);
                                     var cell1 = row.insertCell(0);
                                     var cell2 = row.insertCell(1);
+                                    var cell5 = row.insertCell(2);
                                     var row1 = table.insertRow(count * 2 + 1);
                                     var cell3 = row1.insertCell(0);
                                     var cell4 = row1.insertCell(1);
@@ -147,6 +149,7 @@ $nim = $_SESSION['login_user'];
                                     cell3.style.textAlign = "center";
                                     cell3.innerHTML = "<button type=\"button\" class=\"btn btn-success btn-lg\">Download</button>";
                                     cell4.innerHTML = myObj["Content"][j]['Keterangan'];
+                                    cell5.innerHTML = myObj["Content"][j]['tanggal'];
                                     count++;
                                 }
                                 j++;
@@ -276,6 +279,7 @@ $nim = $_SESSION['login_user'];
                             var cell6 = row.insertCell(5);
                             var cell7 = row.insertCell(6);
                             var cell8 = row.insertCell(7);
+                            var cell9 = row.insertCell(8);
                             var matkul = myObj[i-1]['Kode'];
                             cell1.innerHTML = i;
                             cell2.innerHTML = myObj[i-1]['Matkul'];
@@ -284,6 +288,7 @@ $nim = $_SESSION['login_user'];
                             cell5.innerHTML = myObj[i-1]['Hari'];
                             cell6.innerHTML = myObj[i-1]['Mulai'];
                             cell7.innerHTML = myObj[i-1]['Selesai'];
+                            cell9.innerHTML = myObj[i-1]['Semester'];
                             cell8.innerHTML = "<center>\n" +
                                 "                        <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" onclick=\"getNilai(\'"+matkul+"\')\"  data-target=\"#modalNilai\">Nilai</button>\n" +
                                 "                        <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" onclick=\"getAbsen(\'"+matkul+"\')\" data-target=\"#modalAbsen\">Absen</button>\n" +
@@ -474,18 +479,25 @@ $nim = $_SESSION['login_user'];
             });
         }
         function validate(a){
-            $(function() {
-                $.ajax({
-                    type: 'POST',
-                    data:{a:a},
-                    url: 'php/dosen/validate.php',
-                    success: function(response) {
-                        javascript:getpages('./content/Pa.php','centercol');
-                    },
-                    error: function(error) {
-                    }
+
+            var r = confirm("Press a button!");
+            if (r == true) {
+                $(function() {
+                    $.ajax({
+                        type: 'POST',
+                        data:{a:a},
+                        url: 'php/dosen/validate.php',
+                        success: function(response) {
+                            javascript:getpages('./content/Pa.php','centercol');
+                        },
+                        error: function(error) {
+                        }
+                    });
                 });
-            });
+            } else {
+
+            }
+
         }
         function getMatkulDosen(){
             var myObj;
@@ -673,10 +685,15 @@ $nim = $_SESSION['login_user'];
                             var cell2 = row.insertCell(1);
                             var cell3 = row.insertCell(2);
                             var cell4 = row.insertCell(3);
+                            var cell5 = row.insertCell(4);
                             cell1.innerHTML = i;
+                            var data1 = myObj[i - 1]['Materi'];
+                            var data2 = myObj[i - 1]['Kehadiran'];
+                            var data3 = myObj[i - 1]['tgl'];
                             cell2.innerHTML = myObj[i - 1]['Materi'];
                             cell3.innerHTML = myObj[i - 1]['Kehadiran'];
                             cell4.innerHTML = myObj[i - 1]['tgl'];
+                            cell5.innerHTML = "<button onclick=deleteData('"+data1+"','"+data2+"','"+data3+"')> Delete </button>";
                             i++;
                         }
                     },
@@ -685,7 +702,18 @@ $nim = $_SESSION['login_user'];
                 });
             });
         }
-        function inputAbsen(a,b){
+        function deleteData(a,b,c) {
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    data: {a:a,b:b,c:c},
+                    url: 'php/dosen/delete.php',
+                    success: function(response) {
+                    },
+                });
+            });
+        }
+         function inputAbsen(a,b){
             var tipe = document.getElementById("input_tipe").value;
             var tgl = document.getElementById("input_tgl").value;
             var materi = document.getElementById("input_materi").value;
@@ -696,6 +724,9 @@ $nim = $_SESSION['login_user'];
                     url: 'php/dosen/inputAbsen.php',
                     success: function(response) {
                     },
+                    error: function(error) {
+                        console.log(error);
+                    }
                 });
             });
         }
